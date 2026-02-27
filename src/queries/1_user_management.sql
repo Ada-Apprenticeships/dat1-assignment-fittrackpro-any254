@@ -2,7 +2,12 @@
 .mode column
 
 -- 1.1
-SELECT *
+SELECT 
+  member_id,
+  first_name,
+  last_name,
+  email,
+  join_date
 FROM members;
 
 -- 1.2
@@ -10,11 +15,6 @@ FROM members;
 UPDATE members
 SET phone_number = '07000 100005',
     email = 'emily.jones.updated@email.com'
-WHERE member_id = 5;
-
--- SHOW UPDATED RECORD -- do i need it??
-SELECT member_id, phone_number, email
-FROM members
 WHERE member_id = 5;
 
 -- 1.3

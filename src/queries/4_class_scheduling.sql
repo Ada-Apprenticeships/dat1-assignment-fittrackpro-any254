@@ -2,7 +2,7 @@
 .mode column
 
 -- 4.1 
-SELECT 
+SELECT DISTINCT
     cl.class_id, 
     cl.name AS class_name,
     s.first_name || ' ' || s.last_name AS instructor_name
@@ -26,7 +26,7 @@ JOIN classes c
     ON c.class_id = cs.class_id
 LEFT JOIN class_attendance ca
     ON ca.schedule_id =cs.schedule_id
-    AND ca.attendance_status = 'Registered'
+    AND ca.attendance_status IN ('Registered', 'Attended')
 WHERE date(cs.start_time) = '2025-02-01'
 GROUP BY cs.schedule_id, c.class_id, c.name, cs.start_time, cs.end_time, c.capacity
 HAVING available_spots > 0

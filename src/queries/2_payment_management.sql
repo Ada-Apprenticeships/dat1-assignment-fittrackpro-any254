@@ -18,16 +18,6 @@ VALUES (
     'Monthly membership fee'
 );
 
-SELECT payment_id,
-       member_id,
-       amount,
-       payment_date,
-       payment_method,
-       payment_type
-FROM payments
-WHERE member_id = 11
-ORDER BY payment_date DESC
-LIMIT 1;
 -- 2.2 
 
 SELECT 
