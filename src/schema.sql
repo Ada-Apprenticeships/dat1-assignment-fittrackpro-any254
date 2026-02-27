@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS locations;
 -- locations
 CREATE TABLE locations (
     location_id INTEGER,
-    name VARCHAR(50),
+    name VARCHAR(30),
     address VARCHAR(100),
     phone_number TEXT NOT NULL
         CHECK (length(phone_number) BETWEEN 5 AND 20),
@@ -35,8 +35,8 @@ CREATE TABLE locations (
 -- members 
 CREATE TABLE members (
     member_id INTEGER,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    first_name VARCHAR(20),
+    last_name VARCHAR(30),
     email VARCHAR(50) NOT NULL
         CHECK (email LIKE '%@%.%'),
     phone_number TEXT NOT NULL
@@ -48,7 +48,7 @@ CREATE TABLE members (
             date(join_date) IS NOT NULL
             AND date(join_date) >= date(date_of_birth)
         ),
-    emergency_contact_name VARCHAR(50),
+    emergency_contact_name VARCHAR(20),
     emergency_contact_phone TEXT NOT NULL
         CHECK (length(emergency_contact_phone) BETWEEN 5 AND 20),
     PRIMARY KEY (member_id)
@@ -58,8 +58,8 @@ CREATE TABLE members (
 --staff
 CREATE TABLE staff (
     staff_id INTEGER,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    first_name VARCHAR(20),
+    last_name VARCHAR(30),
     email VARCHAR(50) NOT NULL
         CHECK (email LIKE '%@%.%'),
     phone_number TEXT NOT NULL
@@ -76,7 +76,7 @@ CREATE TABLE staff (
 --equipment 
 CREATE TABLE equipment (
     equipment_id INTEGER,
-    name VARCHAR(50),
+    name VARCHAR(20),
     type VARCHAR(30),
     purchase_date TEXT NOT NULL
         CHECK (date(purchase_date) IS NOT NULL),
@@ -92,7 +92,7 @@ CREATE TABLE equipment (
 -- classes
 CREATE TABLE classes (
     class_id INTEGER,
-    name VARCHAR(50),
+    name VARCHAR(30),
     description VARCHAR(100),
     capacity INTEGER,
     duration INTEGER,
