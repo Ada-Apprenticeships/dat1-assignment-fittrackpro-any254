@@ -53,7 +53,7 @@ WITH RECURSIVE dates(d) AS (
 
   UNION ALL
 
-  -- adding one day untill we teach the latest attendance date
+  -- adding one day untill we reach the latest attendance date
   SELECT date(julianday(d) + 1)
   FROM dates
   WHERE d < (SELECT date(MAX(check_in_time)) FROM attendance)
